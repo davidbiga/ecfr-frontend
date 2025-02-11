@@ -85,7 +85,7 @@ export function StatsCards({ state, trend }: StatsCardsProps) {
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Monthly Trend</CardTitle>
+          <CardTitle className="text-sm font-medium">Current Change Trend</CardTitle>
           <TrendingUp className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
@@ -101,7 +101,7 @@ export function StatsCards({ state, trend }: StatsCardsProps) {
             )}
           </div>
           <p className="text-xs text-muted-foreground">
-            Change from previous month
+            Trend based on visible data
           </p>
         </CardContent>
       </Card>
