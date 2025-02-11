@@ -26,7 +26,7 @@ export function DetailsView({ state, dispatch, agencyColors }: DetailsViewProps)
       </div>
       <div className="space-y-4">
         {Object.entries(state.selectedMonth.data)
-          .filter(([_, value]) => value > 0)
+          .filter(([, value]) => value > 0)
           .sort(([, a], [, b]) => b - a)
           .map(([agency, count]) => (
             <button
