@@ -11,6 +11,7 @@ import { AgencyDetailsView } from "./components/agency-details-view"
 import { TimeRange, ViewType } from "./types"
 import { ChartConfig } from "@/components/ui/chart"
 import { fetchCorrectionsData } from '../lib/api'
+import Image from 'next/image'
 
 export default function Home() {
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -117,6 +118,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-8 space-y-8">
+      <div className="flex items-center justify-between mb-8">
+        <Image
+          src="/logo.svg"
+          alt="CFR Logo"
+          width={500}
+          height={100}
+          priority
+        />
+      </div>
+
       <StatsCards state={state} trend={trend} />
 
       <Card>
