@@ -1,12 +1,22 @@
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { State } from "../types"
+
+type ChartDataPoint = {
+  month: string;
+  [key: string]: string | number;
+}
+
+type ChartClickEvent = {
+  activePayload?: Array<{
+    payload: ChartDataPoint;
+  }>;
+}
 
 interface TimelineViewProps {
-  chartData: any[]
+  chartData: ChartDataPoint[]
   chartConfig: ChartConfig
   agencyColors: Record<string, string>
-  onDataPointClick: (data: any) => void
+  onDataPointClick: (data: ChartClickEvent | undefined) => void
 }
 
 export function TimelineView({ chartData, chartConfig, agencyColors, onDataPointClick }: TimelineViewProps) {
