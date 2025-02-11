@@ -101,7 +101,7 @@ export default function Home() {
       const midPoint = Math.floor(chartData.length / 2)
       const [firstHalf, secondHalf] = [chartData.slice(0, midPoint), chartData.slice(midPoint)]
       
-      const getHalfAvg = (data: any[]) => data.reduce((sum, month) => 
+      const getHalfAvg = (data: { month: string; [key: string]: string | number }[]) => data.reduce((sum, month) => 
         sum + Object.entries(month).reduce((monthSum, [key, val]) => 
           key !== 'month' ? monthSum + (val as number) : monthSum, 0
         ), 0) / data.length
@@ -193,7 +193,7 @@ export default function Home() {
                           month: monthData.month,
                           data: Object.fromEntries(
                             Object.entries(monthData).filter(([key]) => key !== 'month')
-                          )
+                          ) as Record<string, number>
                         }
                       });
                     }
